@@ -15,36 +15,33 @@ import {
   StyleSheet,
   Text,
   View,
+  ImageBackground,
 } from 'react-native';
 
 import {LoginScreen} from './src/screens/';
 
 const App = () => {
+  const background = require('./src/screens/login/img/bg-login.png');
   return (
-    <SafeAreaView>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <LoginScreen />
-      </ScrollView>
+    <SafeAreaView style={styles.container}>
+      <ImageBackground
+        source={background}
+        resizeMode="cover"
+        style={styles.background}>
+        <ScrollView contentInsetAdjustmentBehavior="automatic">
+          <LoginScreen />
+        </ScrollView>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  background: {
+    flex: 1,
   },
 });
 
